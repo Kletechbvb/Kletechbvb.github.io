@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Notes - Coming Soon</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #282c34;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Card Container */
+    .card {
+      position: relative;
+      width: 400px;
+      padding: 2rem;
+      background: linear-gradient(145deg, #ffffff, #dcdcdc);
+      border-radius: 20px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .card-content h1 {
+      font-size: 2.2rem;
+      color: #282c34;
+      font-weight: bold;
+      animation: slideIn 1s ease-out forwards;
+    }
+
+    .card-content p {
+      font-size: 1rem;
+      margin: 1rem 0;
+      color: #555;
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    .playstore-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.8rem;
+      background-color: #1dbf73;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s;
+      animation: bounce 1s ease infinite;
+    }
+
+    .playstore-btn:hover {
+      background-color: #17a566;
+    }
+
+    .ripple {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: rgba(29, 191, 115, 0.1);
+      border-radius: 50%;
+      animation: rippleEffect 5s infinite ease-out;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes rippleEffect {
+      0% { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="card-content">
+    <h1>Quick Notes</h1>
+    <p>Your favorite note-taking app is launching its web version soon! Stay tuned for a fast, seamless, and beautiful way to capture your thoughts online.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.quicknotes.app" target="_blank" class="playstore-btn">
+      Install Quick Notes App
+    </a>
+    <div class="ripple"></div>
+  </div>
+</div>
+
+<script>
+  // Ripple effect animation
+  document.querySelector('.ripple').addEventListener('animationiteration', () => {
+    const ripple = document.querySelector('.ripple');
+    ripple.style.top = `${Math.random() * 100}%`;
+    ripple.style.left = `${Math.random() * 100}%`;
+  });
+</script>
+
+</body>
+</html>
